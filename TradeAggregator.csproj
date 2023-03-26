@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9F012B83-2E42-455A-84DB-007F81B5519C}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>TradeAggregator</RootNamespace>
+    <AssemblyName>TradeAggregator</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AccountForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AccountForm.Designer.cs">
+      <DependentUpon>AccountForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddRespPersonForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddRespPersonForm.Designer.cs">
+      <DependentUpon>AddRespPersonForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CommOffersForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CommOffersForm.Designer.cs">
+      <DependentUpon>CommOffersForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GraphForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GraphForm.Designer.cs">
+      <DependentUpon>GraphForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InputKUForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InputKUForm.Designer.cs">
+      <DependentUpon>InputKUForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListForm.Designer.cs">
+      <DependentUpon>ListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Extends\EDGV\EDGVColumnHeaderCell.cs" />
+    <Compile Include="Extends\EDGV\EDGVFilterEventArgs.cs" />
+    <Compile Include="Extends\EDGV\EDGVFilterEventHandler.cs" />
+    <Compile Include="Extends\EDGV\EDGVFilterMenu.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Extends\EDGV\EDGVFilterMenuFilterType.cs" />
+    <Compile Include="Extends\EDGV\EDGVFilterMenuSortType.cs" />
+    <Compile Include="Extends\EDGV\ExtendedDataGridView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Extends\EDGV\Localization\EDGVStrings.cs" />
+    <Compile Include="Extends\EDGV\Properties\Resources.cs" />
+    <Compile Include="Extends\EDGV\SearchToolBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Extends\EDGV\SearchToolBarSearchEventArgs.cs" />
+    <Compile Include="Extends\EDGV\SearchToolBarSearchEventHandler.cs" />
+    <Compile Include="Extends\EDGV\SetFilterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Extends\EDGV\TripleTreeNode.cs" />
+    <Compile Include="Extends\EDGV\TripleTreeNodeType.cs" />
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OrderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OrderForm.Designer.cs">
+      <DependentUpon>OrderForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProfileForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProfileForm.Designer.cs">
+      <DependentUpon>ProfileForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="SelectCategoryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SelectCategoryForm.Designer.cs">
+      <DependentUpon>SelectCategoryForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SelectProductForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SelectProductForm.Designer.cs">
+      <DependentUpon>SelectProductForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AccountForm.resx">
+      <DependentUpon>AccountForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddRespPersonForm.resx">
+      <DependentUpon>AddRespPersonForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CommOffersForm.resx">
+      <DependentUpon>CommOffersForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GraphForm.resx">
+      <DependentUpon>GraphForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InputKUForm.resx">
+      <DependentUpon>InputKUForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListForm.resx">
+      <DependentUpon>ListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Extends\EDGV.Localization.EDGVStrings.resources" />
+    <EmbeddedResource Include="Extends\EDGV.Properties.Resources.resources" />
+    <EmbeddedResource Include="Extends\EDGV.SearchToolBar.resources" />
+    <EmbeddedResource Include="Extends\EDGV.SetFilterForm.resources" />
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OrderForm.resx">
+      <DependentUpon>OrderForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProfileForm.resx">
+      <DependentUpon>ProfileForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SelectCategoryForm.resx">
+      <DependentUpon>SelectCategoryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SelectProductForm.resx">
+      <DependentUpon>SelectProductForm.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="Extends\ExtendedDataGridView.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
