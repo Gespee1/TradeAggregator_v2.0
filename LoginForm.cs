@@ -195,18 +195,16 @@ namespace TradeAggregator
                 // Вкл или выкл режима запоминания
                 if(saveFlag != checkBoxSave.Checked)
                 {
-                    if(checkBoxSave.Checked) // Вкл
+                    command = new SqlCommand($"update Users set SaveFlag = 0" +
+                            $"where PCName = '{Environment.UserDomainName}' and " +
+                            $"UserName = '{Environment.UserName}'", _connection);
+                    command.ExecuteNonQuery();
+
+                    if (checkBoxSave.Checked) // Вкл
                     {
                         command = new SqlCommand($"update Users set SaveFlag = 1" +
                             $"where PCName = '{Environment.UserDomainName}' and " +
-                            $"UserName = '{Environment.UserName}'", _connection);
-                        command.ExecuteNonQuery();
-                    }
-                    else // Выкл
-                    {
-                        command = new SqlCommand($"update Users set SaveFlag = 0" +
-                            $"where PCName = '{Environment.UserDomainName}' and " +
-                            $"UserName = '{Environment.UserName}'", _connection);
+                            $"UserName = '{Environment.UserName}' and Login = '{textBoxLogin.Text}'", _connection);
                         command.ExecuteNonQuery();
                     }
                 }
@@ -234,7 +232,7 @@ namespace TradeAggregator
 
             SqlCommand command = new SqlCommand($"select Login, Password, SaveFlag from Users " +
                 $"where PCName = '{Environment.UserDomainName}' and " +
-                $"UserName = '{Environment.UserName}'", _connection);
+                $"UserName = '{Environment.UserName}' and SaveFlag = 1", _connection);
             SqlDataReader reader = command.ExecuteReader();
             if(reader.Read())
             {
