@@ -9,7 +9,7 @@ namespace TradeAggregator
 {
     public partial class SelectCategoryForm : Form
     {
-        private SqlConnection _connection = new SqlConnection(ConfigurationManager.ConnectionStrings["AggregatorDataBase"].ConnectionString);
+        private SqlConnection _connection = new SqlConnection(ConfigurationManager.ConnectionStrings["Aggregator"].ConnectionString);
         private List<string> _CategoryId;
         public SelectCategoryForm()
         {

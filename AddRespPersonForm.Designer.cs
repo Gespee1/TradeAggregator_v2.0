@@ -29,149 +29,164 @@ namespace TradeAggregator
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBoxName = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBoxNumber = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBoxEmail = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBoxPost = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.buttonCreate = new System.Windows.Forms.Button();
+            this.textBoxName = new MaterialSkin.Controls.MaterialTextBox();
+            this.maskTextBoxNumber = new MaterialSkin.Controls.MaterialMaskedTextBox();
+            this.textBoxEmail = new MaterialSkin.Controls.MaterialTextBox();
+            this.textBoxPost = new MaterialSkin.Controls.MaterialTextBox();
+            this.buttonCreate = new MaterialSkin.Controls.MaterialButton();
             this.SuspendLayout();
             // 
             // textBoxName
             // 
-            this.textBoxName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBoxName.Location = new System.Drawing.Point(102, 60);
+            this.textBoxName.AnimateReadOnly = false;
+            this.textBoxName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxName.Depth = 0;
+            this.textBoxName.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.textBoxName.Hint = "ФИО";
+            this.textBoxName.LeadingIcon = null;
+            this.textBoxName.LeaveOnEnterKey = true;
+            this.textBoxName.Location = new System.Drawing.Point(74, 67);
+            this.textBoxName.MaxLength = 50;
+            this.textBoxName.MouseState = MaterialSkin.MouseState.OUT;
+            this.textBoxName.Multiline = false;
             this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(349, 26);
+            this.textBoxName.Size = new System.Drawing.Size(349, 50);
             this.textBoxName.TabIndex = 7;
+            this.textBoxName.Text = "";
+            this.textBoxName.TrailingIcon = null;
             // 
-            // label3
+            // maskTextBoxNumber
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(49, 63);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(47, 20);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "ФИО";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(87, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(327, 24);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "Создание ответственного лица";
-            // 
-            // textBoxNumber
-            // 
-            this.textBoxNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBoxNumber.Location = new System.Drawing.Point(214, 92);
-            this.textBoxNumber.Name = "textBoxNumber";
-            this.textBoxNumber.Size = new System.Drawing.Size(237, 26);
-            this.textBoxNumber.TabIndex = 10;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(49, 95);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(159, 20);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "Телефонный номер";
+            this.maskTextBoxNumber.AllowPromptAsInput = true;
+            this.maskTextBoxNumber.AnimateReadOnly = false;
+            this.maskTextBoxNumber.AsciiOnly = false;
+            this.maskTextBoxNumber.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.maskTextBoxNumber.BeepOnError = false;
+            this.maskTextBoxNumber.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals;
+            this.maskTextBoxNumber.Depth = 0;
+            this.maskTextBoxNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.maskTextBoxNumber.HidePromptOnLeave = false;
+            this.maskTextBoxNumber.HideSelection = true;
+            this.maskTextBoxNumber.Hint = "Телефонный номер";
+            this.maskTextBoxNumber.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Default;
+            this.maskTextBoxNumber.LeadingIcon = null;
+            this.maskTextBoxNumber.LeaveOnEnterKey = true;
+            this.maskTextBoxNumber.Location = new System.Drawing.Point(74, 123);
+            this.maskTextBoxNumber.Mask = "8-000-000-00-00";
+            this.maskTextBoxNumber.MaxLength = 32767;
+            this.maskTextBoxNumber.MouseState = MaterialSkin.MouseState.OUT;
+            this.maskTextBoxNumber.Name = "maskTextBoxNumber";
+            this.maskTextBoxNumber.PasswordChar = '\0';
+            this.maskTextBoxNumber.PrefixSuffixText = null;
+            this.maskTextBoxNumber.PromptChar = '_';
+            this.maskTextBoxNumber.ReadOnly = false;
+            this.maskTextBoxNumber.RejectInputOnFirstFailure = false;
+            this.maskTextBoxNumber.ResetOnPrompt = true;
+            this.maskTextBoxNumber.ResetOnSpace = true;
+            this.maskTextBoxNumber.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.maskTextBoxNumber.SelectedText = "";
+            this.maskTextBoxNumber.SelectionLength = 0;
+            this.maskTextBoxNumber.SelectionStart = 0;
+            this.maskTextBoxNumber.ShortcutsEnabled = true;
+            this.maskTextBoxNumber.Size = new System.Drawing.Size(349, 48);
+            this.maskTextBoxNumber.SkipLiterals = true;
+            this.maskTextBoxNumber.TabIndex = 10;
+            this.maskTextBoxNumber.TabStop = false;
+            this.maskTextBoxNumber.Text = "8-   -   -  -";
+            this.maskTextBoxNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.maskTextBoxNumber.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals;
+            this.maskTextBoxNumber.TrailingIcon = null;
+            this.maskTextBoxNumber.UseSystemPasswordChar = false;
+            this.maskTextBoxNumber.ValidatingType = null;
             // 
             // textBoxEmail
             // 
-            this.textBoxEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBoxEmail.Location = new System.Drawing.Point(214, 124);
+            this.textBoxEmail.AnimateReadOnly = false;
+            this.textBoxEmail.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxEmail.Depth = 0;
+            this.textBoxEmail.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.textBoxEmail.Hint = "Электронная почта";
+            this.textBoxEmail.LeadingIcon = null;
+            this.textBoxEmail.LeaveOnEnterKey = true;
+            this.textBoxEmail.Location = new System.Drawing.Point(74, 179);
+            this.textBoxEmail.MaxLength = 50;
+            this.textBoxEmail.MouseState = MaterialSkin.MouseState.OUT;
+            this.textBoxEmail.Multiline = false;
             this.textBoxEmail.Name = "textBoxEmail";
-            this.textBoxEmail.Size = new System.Drawing.Size(237, 26);
+            this.textBoxEmail.Size = new System.Drawing.Size(349, 50);
             this.textBoxEmail.TabIndex = 12;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.Location = new System.Drawing.Point(49, 127);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(160, 20);
-            this.label4.TabIndex = 11;
-            this.label4.Text = "Электронная почта";
+            this.textBoxEmail.Text = "";
+            this.textBoxEmail.TrailingIcon = null;
             // 
             // textBoxPost
             // 
-            this.textBoxPost.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBoxPost.Location = new System.Drawing.Point(214, 156);
+            this.textBoxPost.AnimateReadOnly = false;
+            this.textBoxPost.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxPost.Depth = 0;
+            this.textBoxPost.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.textBoxPost.Hint = "Должность";
+            this.textBoxPost.LeadingIcon = null;
+            this.textBoxPost.LeaveOnEnterKey = true;
+            this.textBoxPost.Location = new System.Drawing.Point(74, 235);
+            this.textBoxPost.MaxLength = 50;
+            this.textBoxPost.MouseState = MaterialSkin.MouseState.OUT;
+            this.textBoxPost.Multiline = false;
             this.textBoxPost.Name = "textBoxPost";
-            this.textBoxPost.Size = new System.Drawing.Size(237, 26);
+            this.textBoxPost.Size = new System.Drawing.Size(237, 50);
             this.textBoxPost.TabIndex = 14;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label5.Location = new System.Drawing.Point(49, 159);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(95, 20);
-            this.label5.TabIndex = 13;
-            this.label5.Text = "Должность";
+            this.textBoxPost.Text = "";
+            this.textBoxPost.TrailingIcon = null;
             // 
             // buttonCreate
             // 
             this.buttonCreate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonCreate.AutoSize = false;
+            this.buttonCreate.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.buttonCreate.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.buttonCreate.Depth = 0;
             this.buttonCreate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonCreate.Location = new System.Drawing.Point(307, 206);
+            this.buttonCreate.HighEmphasis = true;
+            this.buttonCreate.Icon = null;
+            this.buttonCreate.Location = new System.Drawing.Point(318, 235);
+            this.buttonCreate.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.buttonCreate.MouseState = MaterialSkin.MouseState.HOVER;
             this.buttonCreate.Name = "buttonCreate";
-            this.buttonCreate.Size = new System.Drawing.Size(144, 29);
+            this.buttonCreate.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.buttonCreate.Size = new System.Drawing.Size(105, 50);
             this.buttonCreate.TabIndex = 25;
             this.buttonCreate.Text = "Создать";
+            this.buttonCreate.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.buttonCreate.UseAccentColor = false;
             this.buttonCreate.UseVisualStyleBackColor = true;
             this.buttonCreate.Click += new System.EventHandler(this.buttonCreate_Click);
             // 
             // AddRespPersonForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(502, 247);
+            this.ClientSize = new System.Drawing.Size(518, 295);
             this.Controls.Add(this.buttonCreate);
             this.Controls.Add(this.textBoxPost);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.textBoxEmail);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBoxNumber);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.maskTextBoxNumber);
             this.Controls.Add(this.textBoxName);
-            this.Controls.Add(this.label3);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(518, 286);
-            this.MinimumSize = new System.Drawing.Size(518, 286);
+            this.MaximumSize = new System.Drawing.Size(518, 295);
+            this.MinimumSize = new System.Drawing.Size(518, 295);
             this.Name = "AddRespPersonForm";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Создание ответственного лица";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AddRespPersonForm_FormClosing);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBoxName;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBoxNumber;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBoxEmail;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBoxPost;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button buttonCreate;
+        private MaterialSkin.Controls.MaterialTextBox textBoxName;
+        private MaterialSkin.Controls.MaterialMaskedTextBox maskTextBoxNumber;
+        private MaterialSkin.Controls.MaterialTextBox textBoxEmail;
+        private MaterialSkin.Controls.MaterialTextBox textBoxPost;
+        private MaterialSkin.Controls.MaterialButton buttonCreate;
     }
 }

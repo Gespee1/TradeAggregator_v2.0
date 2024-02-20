@@ -17,7 +17,7 @@ namespace TradeAggregator
         
         private Int64 VendorId;
         private List<Int64> ProdId;
-        private SqlConnection _connection = new SqlConnection(ConfigurationManager.ConnectionStrings["AggregatorDataBase"].ConnectionString);
+        private SqlConnection _connection = new SqlConnection(ConfigurationManager.ConnectionStrings["Aggregator"].ConnectionString);
 
         public SelectProductForm()
         {

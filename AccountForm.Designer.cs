@@ -42,10 +42,12 @@ namespace TradeAggregator
             this.buttonReceivedKP = new System.Windows.Forms.Button();
             this.buttonGraph = new System.Windows.Forms.Button();
             this.panelNetwork = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.panelVendor = new System.Windows.Forms.Panel();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItemAbout = new System.Windows.Forms.ToolStripMenuItem();
+            this.button3 = new System.Windows.Forms.Button();
             this.panelNetwork.SuspendLayout();
             this.panelVendor.SuspendLayout();
             this.menuStrip.SuspendLayout();
@@ -55,7 +57,7 @@ namespace TradeAggregator
             // 
             this.labelMain.AutoSize = true;
             this.labelMain.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelMain.Location = new System.Drawing.Point(25, 38);
+            this.labelMain.Location = new System.Drawing.Point(13, 39);
             this.labelMain.Name = "labelMain";
             this.labelMain.Size = new System.Drawing.Size(230, 20);
             this.labelMain.TabIndex = 1;
@@ -65,7 +67,7 @@ namespace TradeAggregator
             // 
             this.buttonProfile.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.buttonProfile.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonProfile.Location = new System.Drawing.Point(3, 53);
+            this.buttonProfile.Location = new System.Drawing.Point(3, 17);
             this.buttonProfile.Name = "buttonProfile";
             this.buttonProfile.Size = new System.Drawing.Size(240, 30);
             this.buttonProfile.TabIndex = 6;
@@ -77,7 +79,7 @@ namespace TradeAggregator
             // 
             this.buttonVendors.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.buttonVendors.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonVendors.Location = new System.Drawing.Point(3, 89);
+            this.buttonVendors.Location = new System.Drawing.Point(3, 53);
             this.buttonVendors.Name = "buttonVendors";
             this.buttonVendors.Size = new System.Drawing.Size(240, 30);
             this.buttonVendors.TabIndex = 7;
@@ -89,11 +91,11 @@ namespace TradeAggregator
             // 
             this.buttonOrder.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.buttonOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonOrder.Location = new System.Drawing.Point(3, 125);
+            this.buttonOrder.Location = new System.Drawing.Point(3, 89);
             this.buttonOrder.Name = "buttonOrder";
             this.buttonOrder.Size = new System.Drawing.Size(240, 30);
             this.buttonOrder.TabIndex = 8;
-            this.buttonOrder.Text = "Создать заказ";
+            this.buttonOrder.Text = "Создать авто-заказ";
             this.buttonOrder.UseVisualStyleBackColor = true;
             this.buttonOrder.Click += new System.EventHandler(this.buttonOrder_Click);
             // 
@@ -196,16 +198,29 @@ namespace TradeAggregator
             // panelNetwork
             // 
             this.panelNetwork.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.panelNetwork.Controls.Add(this.button2);
             this.panelNetwork.Controls.Add(this.button1);
             this.panelNetwork.Controls.Add(this.buttonProfile);
             this.panelNetwork.Controls.Add(this.buttonVendors);
             this.panelNetwork.Controls.Add(this.buttonOrder);
             this.panelNetwork.Controls.Add(this.buttonKP);
             this.panelNetwork.Controls.Add(this.buttonContracts);
-            this.panelNetwork.Location = new System.Drawing.Point(12, 85);
+            this.panelNetwork.Location = new System.Drawing.Point(12, 72);
             this.panelNetwork.Name = "panelNetwork";
             this.panelNetwork.Size = new System.Drawing.Size(250, 266);
             this.panelNetwork.TabIndex = 19;
+            // 
+            // button2
+            // 
+            this.button2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button2.Location = new System.Drawing.Point(3, 125);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(240, 30);
+            this.button2.TabIndex = 12;
+            this.button2.Text = "Создать ручной заказ";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -228,7 +243,7 @@ namespace TradeAggregator
             this.panelVendor.Controls.Add(this.buttonGraph);
             this.panelVendor.Controls.Add(this.buttonKU);
             this.panelVendor.Controls.Add(this.buttonReceivedKP);
-            this.panelVendor.Location = new System.Drawing.Point(268, 85);
+            this.panelVendor.Location = new System.Drawing.Point(268, 72);
             this.panelVendor.Name = "panelVendor";
             this.panelVendor.Size = new System.Drawing.Size(251, 266);
             this.panelVendor.TabIndex = 20;
@@ -252,17 +267,29 @@ namespace TradeAggregator
             this.toolStripMenuItemAbout.Text = "О программе";
             this.toolStripMenuItemAbout.Click += new System.EventHandler(this.toolStripMenuItemAbout_Click);
             // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(446, 42);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 22;
+            this.button3.Text = "UI test form";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // AccountForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(533, 363);
+            this.ClientSize = new System.Drawing.Size(533, 350);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.menuStrip);
             this.Controls.Add(this.panelVendor);
             this.Controls.Add(this.panelNetwork);
             this.Controls.Add(this.labelMain);
             this.Name = "AccountForm";
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Личный кабинет";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AccountForm_FormClosing);
             this.Load += new System.EventHandler(this.AccountForm_Load);
@@ -294,5 +321,7 @@ namespace TradeAggregator
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.MenuStrip menuStrip;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemAbout;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
     }
 }

@@ -14,7 +14,7 @@ namespace TradeAggregator
 {
     public partial class ProfileForm : Form
     {
-        private SqlConnection _connection = new SqlConnection(ConfigurationManager.ConnectionStrings["AggregatorDataBase"].ConnectionString);
+        private SqlConnection _connection = new SqlConnection(ConfigurationManager.ConnectionStrings["Aggregator"].ConnectionString);
         private Int64 _userId, _profileId;
         private bool _canChange, _changeStatus = false;
         public string NewRespPersonName;
@@ -90,7 +90,7 @@ namespace TradeAggregator
 
             if (_profileId != 0)
             {
-                command = new SqlCommand($"select rp.Name, p.[Name], p.[UrasticName], p.[INN\\KPP], p.[DirectorName], p.[UrasticAddress], p.[Account]" +
+                command = new SqlCommand($"select rp.Name, p.[Name], p.[UrasticName], p.[INN_KPP], p.[DirectorName], p.[UrasticAddress], p.[Account]" +
                     $", p.[BankName], p.[BankBik], p.[CorrAccount] from Profiles p " +
                     $"left join ResponsiblePersons rp on p.RespPerson = rp.RecID " +
                     $"where p.RecID = {_profileId}", _connection);
@@ -227,14 +227,14 @@ namespace TradeAggregator
         // Открытие формы создания отв. лица
         private void buttonAddRespPerson_Click(object sender, EventArgs e)
         {
-            Form addRP = new AddRespPersonForm(this);
+            /*Form addRP = new AddRespPersonForm(this);
             DialogResult dr = addRP.ShowDialog();
             if(dr == DialogResult.OK)
             {
                 loadRespPersons();
                 Console.WriteLine(NewRespPersonName);
                 comboBoxRespPerson.SelectedItem = NewRespPersonName;
-            }
+            }*/
         }
 
         // Закрытие формы

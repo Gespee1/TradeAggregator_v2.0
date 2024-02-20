@@ -14,7 +14,7 @@ namespace TradeAggregator
 {
     public partial class CommOffersForm : Form
     {
-        private SqlConnection _connection = new SqlConnection(ConfigurationManager.ConnectionStrings["AggregatorDataBase"].ConnectionString);
+        private SqlConnection _connection = new SqlConnection(ConfigurationManager.ConnectionStrings["Aggregator"].ConnectionString);
         private Int64 _userID, _extraID;
         private string _extraStatus;
         private bool _typeIdx, _listMode;
@@ -342,7 +342,7 @@ namespace TradeAggregator
             command = new SqlCommand($"SELECT o.RecId, o.NetworkId, a.VendorID, o.Date, ol.ProductId, a.Price, " +
                 $"ol.Qty as 'OrderQTY', a.Qty as 'VendorQTY' FROM Orders o " +
                 $"left join OrderLines ol on ol.OrderId = o.RecId " +
-                $"left join Assortment a on a.ProductID = ol.ProductId " +
+                $"join Assortment a on a.ProductID = ol.ProductId " +
                 $"where o.Status = 0 order by o.RecId, a.VendorID, ol.ProductId", _connection);
             adapter = new SqlDataAdapter(command);
             adapter.Fill(dt);

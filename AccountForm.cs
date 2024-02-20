@@ -14,7 +14,7 @@ namespace TradeAggregator
 {
     public partial class AccountForm : Form
     {
-        private SqlConnection _connection = new SqlConnection(ConfigurationManager.ConnectionStrings["AggregatorDataBase"].ConnectionString);
+        private SqlConnection _connection = new SqlConnection(ConfigurationManager.ConnectionStrings["Aggregator"].ConnectionString);
         private Int64 _userID;
         private bool _typeIndex;
         private Int32 _buttonFlag; //флаг, фиксирующий то, какую кнопку нажали
@@ -98,11 +98,17 @@ namespace TradeAggregator
 
         }
 
-        // Открытие формы создания заказа
+        // Открытие формы создания заказа для автоматического подбора
         private void buttonOrder_Click(object sender, EventArgs e)
         {
             Form OrderForm = new OrderForm(_userID);
             OrderForm.ShowDialog();
+        }
+        // Открытие формы создания заказа с ручным подбором
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Form ManualOrderForm = new ManualOrderForm(_userID);
+            ManualOrderForm.ShowDialog();
         }
         //открытие формы КУ
         private void buttonKU_Click(object sender, EventArgs e)
@@ -176,6 +182,12 @@ namespace TradeAggregator
                 "Руководители от университета: Миньков С.Л. и Золотов С.Ю.\n\n" +
                 "Руководитель от компании: Молдован Н.А.\n\n" +
                 "2022 год", "О программе", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Form test = new MainForm(_userID);
+            test.ShowDialog();
         }
     }
 }

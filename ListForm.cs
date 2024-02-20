@@ -14,7 +14,7 @@ namespace TradeAggregator
 {
     public partial class ListForm : Form
     {
-        private SqlConnection _connection = new SqlConnection(ConfigurationManager.ConnectionStrings["AggregatorDataBase"].ConnectionString);
+        private SqlConnection _connection = new SqlConnection(ConfigurationManager.ConnectionStrings["Aggregator"].ConnectionString);
         private Int64 _userId, _extraId;
         private Int32 _flag;
         private string _extraString;
@@ -167,7 +167,7 @@ namespace TradeAggregator
                             command = new SqlCommand($"SELECT p.[RecID] as 'Номер поставщика'" +
                                 $", p.[Name] as 'Наименование'" +
                                 $", p.[UrasticName] as 'Юр. наименование'" +
-                                $", p.[INN\\KPP] as 'ИНН\\КПП'" +
+                                $", p.[INN_KPP] as 'ИНН\\КПП'" +
                                 $", p.[DirectorName] as 'Директор'" +
                                 $", p.[UrasticAddress] as 'Юр. адрес'" +
                                 $", p.[Account] as 'Банковский счет'" +

@@ -11,7 +11,7 @@ namespace TradeAggregator
 {
     public partial class InputKUForm : Form
     {
-        private SqlConnection _connection = new SqlConnection(ConfigurationManager.ConnectionStrings["AggregatorDataBase"].ConnectionString);
+        private SqlConnection _connection = new SqlConnection(ConfigurationManager.ConnectionStrings["Aggregator"].ConnectionString);
         private bool _showKU = false, _wasChanged = false, _approved = false, _allowFormClose = false;
         private Int64 _KUId, _VendorId;
         private List<Int64> _ProdIds = new List<Int64>();

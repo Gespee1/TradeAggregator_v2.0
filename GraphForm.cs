@@ -14,7 +14,7 @@ namespace TradeAggregator
     public partial class GraphForm : Form
     {
 
-        private SqlConnection _connection = new SqlConnection(ConfigurationManager.ConnectionStrings["AggregatorDataBase"].ConnectionString);
+        private SqlConnection _connection = new SqlConnection(ConfigurationManager.ConnectionStrings["Aggregator"].ConnectionString);
         private Int64 _userId;
         private DataGridViewSelectedRowCollection dgvSelectedRows;
         private bool byDate = false, _asked = false, _typeIndex;
