@@ -63,8 +63,7 @@ namespace TradeAggregator
                     $"UIPrimary = {mSkinManager.ColorScheme.PrimaryColor.ToArgb()}, UIDarkPrimary = {mSkinManager.ColorScheme.DarkPrimaryColor.ToArgb()}, " +
                     $"UILightPrimary = {mSkinManager.ColorScheme.LightPrimaryColor.ToArgb()}, UIAccent = {mSkinManager.ColorScheme.AccentColor.ToArgb()}, " +
                     $"UIShade = {mSkinManager.ColorScheme.TextColor.ToArgb()} " +
-                    $"where [User] = (select top 1 RecId from Users where " +
-                    $"PCName = '{Environment.UserDomainName}' and UserName = '{Environment.UserName}')"
+                    $"where [User] = {userId}"
                     , _connection);
                 command.ExecuteNonQuery();
             }
@@ -79,6 +78,62 @@ namespace TradeAggregator
                 command.ExecuteNonQuery();
             }
             
+            _connection.Close();
+        }
+
+
+        // Запрос из БД пути для скачивания файлов по пользователю
+        public string getSavePath()
+        {
+            SqlCommand command;
+            SqlDataReader reader;
+            string savePath = "";
+
+            _connection.Open();
+            command = new SqlCommand($"select Path2Save " +
+                $"from UserSettings us join Users u on us.[User] = u.RecID " +
+                $"where u.PCName = '{Environment.UserDomainName}' and u.UserName = '{Environment.UserName}'", _connection);
+            reader = command.ExecuteReader();
+            if (reader.Read())
+                savePath = reader[0].ToString();
+            
+            reader.Close();
+            _connection.Close();
+
+            return savePath;
+        }
+
+
+        // Сохранение в БД пути для скачивания файлов по пользователю
+        public void setSavePath(string strPath, Int64 userId)
+        {
+            SqlCommand command;
+            SqlDataReader reader;
+
+            _connection.Open();
+
+            command = new SqlCommand($"select us.[User] " +
+                $"from UserSettings us join Users u on us.[User] = u.RecID " +
+                $"where u.PCName = '{Environment.UserDomainName}' and u.UserName = '{Environment.UserName}'", _connection);
+            reader = command.ExecuteReader();
+
+            if (reader.HasRows)
+            {
+                reader.Close();
+                command = new SqlCommand($"update UserSettings set Path2Save = {strPath} " +
+                    $"where [User] = (select top 1 RecId from Users where " +
+                    $"PCName = '{Environment.UserDomainName}' and UserName = '{Environment.UserName}')"
+                    , _connection);
+                command.ExecuteNonQuery();
+            }
+            else
+            {
+                reader.Close();
+                command = new SqlCommand($"insert into UserSettings values ({userId}, {strPath}, null, null, null, null, null, null) "
+                    , _connection);
+                command.ExecuteNonQuery();
+            }
+
             _connection.Close();
         }
 

@@ -27,14 +27,17 @@ namespace TradeAggregator
         }
         public AddRespPersonForm(MainForm parent)
         {
+            UserSettingsClass us = new UserSettingsClass();
+            MaterialSkinManager materialSkinManager = MaterialSkinManager.Instance;
+
             InitializeComponent();
             _parent = parent;
 
-            MaterialSkinManager materialSkinManager = MaterialSkinManager.Instance;
+            us.getUiSettings();
+
+            materialSkinManager.Theme = us.materialSkinManager.Theme;
+            materialSkinManager.ColorScheme = us.materialSkinManager.ColorScheme;
             materialSkinManager.AddFormToManage(this);
-            materialSkinManager.Theme = MaterialSkinManager.Themes.DARK;
-            materialSkinManager.ColorScheme = new ColorScheme(Primary.Blue900, Primary.BlueGrey900, Primary.BlueGrey500,
-                Accent.Red700, TextShade.WHITE);
         }
 
         // Создание новой записи

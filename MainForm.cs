@@ -1,5 +1,7 @@
-﻿using MaterialSkin;
+﻿using C1.Framework.Drawing.Gdi;
+using MaterialSkin;
 using MaterialSkin.Controls;
+using MetroFramework.Controls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -34,6 +36,12 @@ namespace TradeAggregator
         private MaterialSkinManager _materialSkinManager;
         private CalculatesClass _calculatesClass;
         public string NewRespPersonName;
+        private ColorScheme
+                _colorBlue = new ColorScheme(Primary.Blue900, Primary.BlueGrey900, Primary.BlueGrey500, Accent.Amber700, TextShade.WHITE),
+                _colorGreen = new ColorScheme(Primary.Green900, Primary.LightGreen900, Primary.LightGreen500, Accent.Red700, TextShade.WHITE),
+                _colorRed = new ColorScheme(Primary.Red900, Primary.Red600, Primary.Red300, Accent.Green700, TextShade.WHITE),
+                _colorOrange = new ColorScheme(Primary.Orange900, Primary.DeepOrange900, Primary.DeepOrange500, Accent.Blue700, TextShade.WHITE),
+                _colorBrown = new ColorScheme(Primary.Brown900, Primary.Brown600, Primary.Brown300, Accent.Blue700, TextShade.WHITE);
 
         //
         // ------------------------------------ОБЩИЙ КОД------------------------------------
@@ -54,12 +62,12 @@ namespace TradeAggregator
         {
             UserSettingsClass us = new UserSettingsClass();
             _materialSkinManager = MaterialSkinManager.Instance;
-            _materialSkinManager.AddFormToManage(this);
 
             us.getUiSettings();
 
             _materialSkinManager.Theme = us.materialSkinManager.Theme;
             _materialSkinManager.ColorScheme = us.materialSkinManager.ColorScheme;
+            _materialSkinManager.AddFormToManage(this);
 
             _connection.Open();
             loadData();
@@ -116,19 +124,7 @@ namespace TradeAggregator
                     case "PageVendor":
                         this.Text = "Поставщики";
 
-                        if (_materialSkinManager.Theme == MaterialSkinManager.Themes.LIGHT)
-                        {
-                            metroGridVendors.RowsDefaultCellStyle.BackColor = Color.FromArgb(255, 255, 255);
-                            metroGridVendors.RowsDefaultCellStyle.ForeColor = Color.Black;
-                            metroGridVendors.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(180, 180, 180);
-                        }
-                        else
-                        {
-                            metroGridVendors.RowsDefaultCellStyle.BackColor = Color.FromArgb(50, 50, 50);
-                            metroGridVendors.RowsDefaultCellStyle.ForeColor = Color.White;
-                            metroGridVendors.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(80, 80, 80);
-                        }
-
+                        gridsApplyStyle(metroGridVendors);
                         loadVendorsData();
                         break;
                     case "PageAutoOrder":
@@ -139,18 +135,7 @@ namespace TradeAggregator
                         break;
                     case "PageManualOrder":
                         this.Text = "Ручной заказ";
-                        if (_materialSkinManager.Theme == MaterialSkinManager.Themes.LIGHT)
-                        {
-                            metroGridManualOrder.RowsDefaultCellStyle.BackColor = Color.FromArgb(255, 255, 255);
-                            metroGridManualOrder.RowsDefaultCellStyle.ForeColor = Color.Black;
-                            metroGridManualOrder.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(180, 180, 180);
-                        }
-                        else
-                        {
-                            metroGridManualOrder.RowsDefaultCellStyle.BackColor = Color.FromArgb(50, 50, 50);
-                            metroGridManualOrder.RowsDefaultCellStyle.ForeColor = Color.White;
-                            metroGridManualOrder.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(80, 80, 80);
-                        }
+                        gridsApplyStyle(metroGridManualOrder);
 
                         break;
                     case "PageCommOffers":
@@ -173,7 +158,6 @@ namespace TradeAggregator
         }
 
         // Нажатие кнопки "Назад"
-
         private void materialButtonBack_Click(object sender, EventArgs e)
         {
             if (!_vendorShownFlag)
@@ -217,6 +201,56 @@ namespace TradeAggregator
             }
 
 
+        }
+        // Стилизация всех таблиц формы
+        private void gridsApplyStyle(MetroGrid  metroGrid)
+        {
+
+            // Выбор цветовой схемы для таблиц
+            if (_materialSkinManager.ColorScheme.PrimaryColor == _colorBlue.PrimaryColor)
+            {
+                metroGrid.ColumnHeadersDefaultCellStyle.BackColor = _colorBlue.DarkPrimaryColor;
+                metroGrid.ColumnHeadersDefaultCellStyle.SelectionBackColor = _colorBlue.PrimaryColor;
+                metroGrid.RowsDefaultCellStyle.SelectionBackColor= _colorBlue.AccentColor;
+            }
+            else if (_materialSkinManager.ColorScheme.PrimaryColor == _colorGreen.PrimaryColor)
+            {
+                metroGrid.ColumnHeadersDefaultCellStyle.BackColor = _colorGreen.DarkPrimaryColor;
+                metroGrid.ColumnHeadersDefaultCellStyle.SelectionBackColor = _colorGreen.PrimaryColor;
+                metroGrid.RowsDefaultCellStyle.SelectionBackColor = _colorGreen.AccentColor;
+            }
+            else if (_materialSkinManager.ColorScheme.PrimaryColor == _colorRed.PrimaryColor)
+            {
+                metroGrid.ColumnHeadersDefaultCellStyle.BackColor = _colorRed.DarkPrimaryColor;
+                metroGrid.ColumnHeadersDefaultCellStyle.SelectionBackColor = _colorRed.PrimaryColor;
+                metroGrid.RowsDefaultCellStyle.SelectionBackColor = _colorRed.AccentColor;
+            }
+            else if (_materialSkinManager.ColorScheme.PrimaryColor == _colorOrange.PrimaryColor)
+            {
+                metroGrid.ColumnHeadersDefaultCellStyle.BackColor = _colorOrange.DarkPrimaryColor;
+                metroGrid.ColumnHeadersDefaultCellStyle.SelectionBackColor = _colorOrange.PrimaryColor;
+                metroGrid.RowsDefaultCellStyle.SelectionBackColor = _colorOrange.AccentColor;
+            }
+            else if (_materialSkinManager.ColorScheme.PrimaryColor == _colorBrown.PrimaryColor)
+            {
+                metroGrid.ColumnHeadersDefaultCellStyle.BackColor = _colorBrown.DarkPrimaryColor;
+                metroGrid.ColumnHeadersDefaultCellStyle.SelectionBackColor = _colorBrown.PrimaryColor;
+                metroGrid.RowsDefaultCellStyle.SelectionBackColor = _colorBrown.AccentColor;
+            }
+
+
+            if (_materialSkinManager.Theme == MaterialSkinManager.Themes.LIGHT)
+            {
+                metroGrid.RowsDefaultCellStyle.BackColor = Color.FromArgb(255, 255, 255);
+                metroGrid.RowsDefaultCellStyle.ForeColor = Color.Black;
+                metroGrid.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(180, 180, 180);
+            }
+            else
+            {
+                metroGrid.RowsDefaultCellStyle.BackColor = Color.FromArgb(50, 50, 50);
+                metroGrid.RowsDefaultCellStyle.ForeColor = Color.White;
+                metroGrid.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(80, 80, 80);
+            }
         }
 
 
@@ -306,6 +340,7 @@ namespace TradeAggregator
                 textBoxBankName.Enabled = false;
                 textBoxBankBIK.Enabled = false;
                 textBoxCorrAccount.Enabled = false;
+                buttonAddRespPerson.Enabled = false;
             }
             else
             {
@@ -320,6 +355,7 @@ namespace TradeAggregator
                 textBoxBankName.Enabled = true;
                 textBoxBankBIK.Enabled = true;
                 textBoxCorrAccount.Enabled = true;
+                buttonAddRespPerson.Enabled = true;
             }
         }
         // Кнопка переключения режима редактирования и сохранения
@@ -535,14 +571,14 @@ namespace TradeAggregator
         }
         private void treeViewCategory_DrawNode(object sender, DrawTreeNodeEventArgs e)
         {
-            SolidBrush greenBrush = new SolidBrush(Color.Orange);
+            System.Drawing.SolidBrush greenBrush = new System.Drawing.SolidBrush(Color.Orange);
             if (e.Node.IsSelected)
             {
                 if (treeViewCategory.Focused)
                     e.Graphics.FillRectangle(greenBrush, e.Bounds);
             }
             else
-                e.Graphics.FillRectangle(Brushes.Transparent, e.Bounds);
+                e.Graphics.FillRectangle(System.Drawing.Brushes.Transparent, e.Bounds);
 
             TextRenderer.DrawText(e.Graphics, e.Node.Text, e.Node.TreeView.Font, e.Node.Bounds, e.Node.ForeColor);
         }
@@ -789,7 +825,7 @@ namespace TradeAggregator
                 for (int i = 0; i < dataGridViewVendors.RowCount; i++)
                 {
                     if (Convert.ToBoolean(dataGridViewVendors.Rows[i].Cells["NetworkReadFlag"].Value) == false)
-                        dataGridViewVendors.Rows[i].DefaultCellStyle.Font = new Font(dataGridViewVendors.Font, FontStyle.Bold);
+                        dataGridViewVendors.Rows[i].DefaultCellStyle.Font = new System.Drawing.Font(dataGridViewVendors.Font, FontStyle.Bold);
                 }
             }
             else // Документная форма
@@ -895,6 +931,8 @@ namespace TradeAggregator
             if (_listMode)
                 openCommOff();
         }
+
+
         // Открытие КП
         private void openCommOff()
         {
@@ -991,7 +1029,10 @@ namespace TradeAggregator
         // Отображение данных UI на форме
         private void loadUIData()
         {
-            if(_materialSkinManager.Theme == MaterialSkinManager.Themes.LIGHT)
+            UserSettingsClass us = new UserSettingsClass();
+
+            // Выбор на форме текущей цветовой темы
+            if (_materialSkinManager.Theme == MaterialSkinManager.Themes.LIGHT)
             {
                 materialSwitchTheme.Text = "Светлая тема";
                 materialSwitchTheme.Checked = true;
@@ -1002,7 +1043,20 @@ namespace TradeAggregator
                 materialSwitchTheme.Checked = false;
             }
 
+            // Загрузка сохраненного пути для пользователя
+            materialTextBoxSaveFolder.Text = us.getSavePath();
 
+            // Выбор действующей цветовой схемы в комбобоксе
+            if (_materialSkinManager.ColorScheme.PrimaryColor == _colorBlue.PrimaryColor)
+                materialComboBoxColorScheme.SelectedIndex = 0;
+            else if (_materialSkinManager.ColorScheme.PrimaryColor == _colorGreen.PrimaryColor)
+                materialComboBoxColorScheme.SelectedIndex = 1;
+            else if (_materialSkinManager.ColorScheme.PrimaryColor == _colorRed.PrimaryColor)
+                materialComboBoxColorScheme.SelectedIndex = 2;
+            else if (_materialSkinManager.ColorScheme.PrimaryColor == _colorOrange.PrimaryColor)
+                materialComboBoxColorScheme.SelectedIndex = 3;
+            else if (_materialSkinManager.ColorScheme.PrimaryColor == _colorBrown.PrimaryColor)
+                materialComboBoxColorScheme.SelectedIndex = 4;
         }
         // Переключение темы
         private void materialSwitchTheme_CheckedChanged(object sender, EventArgs e)
@@ -1022,17 +1076,44 @@ namespace TradeAggregator
                 us.setUiSettings(_materialSkinManager, _userID);
             }
         }
+        // Изменение цветовой схемы
+        private void materialComboBoxColorScheme_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UserSettingsClass us = new UserSettingsClass();
+
+            switch (materialComboBoxColorScheme.SelectedIndex)
+            {
+                case 0:
+                    _materialSkinManager.ColorScheme = _colorBlue;
+                    break;
+                case 1:
+                    _materialSkinManager.ColorScheme = _colorGreen;
+                    break;
+                case 2:
+                    _materialSkinManager.ColorScheme = _colorRed;
+                    break;
+                case 3:
+                    _materialSkinManager.ColorScheme = _colorOrange;
+                    break;
+                case 4:
+                    _materialSkinManager.ColorScheme = _colorBrown;
+                    break;
+            }
+            us.setUiSettings(_materialSkinManager, _userID);
+            this.Refresh();
+        }
+        
         // Выбор пути сохранения файлов
         private void materialFloatingActionButtonSelectFolder_Click(object sender, EventArgs e)
         {
             FolderBrowserDialog FBD = new FolderBrowserDialog();
+            UserSettingsClass us = new UserSettingsClass();
+
             if (FBD.ShowDialog() == DialogResult.OK)
             {
                 materialTextBoxSaveFolder.Text = FBD.SelectedPath;
-                //string textPath = textBoxPath.Text;
-                //Global_parameters GP2 = new Global_parameters();
-                //GP2.setPath(user, textPath);
-                //MessageBox.Show("Сохранено!");
+
+                us.setSavePath(materialTextBoxSaveFolder.Text, _userID);
             }
         }
 

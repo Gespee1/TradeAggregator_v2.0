@@ -32,10 +32,12 @@ namespace TradeAggregator
             materialSkinManager.Theme = us.materialSkinManager.Theme;
             materialSkinManager.ColorScheme = us.materialSkinManager.ColorScheme;
 
-            /*materialSkinManager.Theme = MaterialSkinManager.Themes.DARK;
-            materialSkinManager.ColorScheme = new ColorScheme(Primary.Blue900, Primary.BlueGrey900, Primary.BlueGrey500,
-                Accent.Red700, TextShade.WHITE);*/
-            //Console.WriteLine($"Theme: {(int)materialSkinManager.Theme} | Primary: {(int)Primary.Blue900}");
+            // Выбор цвета лого
+            if(materialSkinManager.Theme == MaterialSkinManager.Themes.LIGHT)
+                pictureBoxLogo.Image = global::TradeAggregator.Resources.Black_logo___no_background;
+            else
+                pictureBoxLogo.Image = global::TradeAggregator.Resources.White_logo___no_background;
+
         }
 
         // Загрузка формы

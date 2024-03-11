@@ -63,9 +63,9 @@ namespace TradeAggregator {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Black_logo___no_background1 {
+        internal static System.Drawing.Bitmap Black_logo___no_background {
             get {
-                object obj = ResourceManager.GetObject("Black_logo___no_background1", resourceCulture);
+                object obj = ResourceManager.GetObject("Black_logo___no_background", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace TradeAggregator {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap White_logo___no_background1 {
+        internal static System.Drawing.Bitmap White_logo___no_background {
             get {
-                object obj = ResourceManager.GetObject("White_logo___no_background1", resourceCulture);
+                object obj = ResourceManager.GetObject("White_logo___no_background", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

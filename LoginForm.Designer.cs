@@ -29,7 +29,6 @@ namespace TradeAggregator
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             this.textBoxLogin = new MaterialSkin.Controls.MaterialTextBox2();
             this.textBoxPass = new MaterialSkin.Controls.MaterialTextBox2();
             this.buttonApply = new MaterialSkin.Controls.MaterialButton();
@@ -227,7 +226,7 @@ namespace TradeAggregator
             // pictureBoxLogo
             // 
             this.pictureBoxLogo.ErrorImage = null;
-            this.pictureBoxLogo.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxLogo.Image")));
+            this.pictureBoxLogo.Image = global::TradeAggregator.Resources.Black_logo___no_background;
             this.pictureBoxLogo.InitialImage = null;
             this.pictureBoxLogo.Location = new System.Drawing.Point(127, 67);
             this.pictureBoxLogo.Name = "pictureBoxLogo";
